@@ -5,10 +5,10 @@ resource "google_cloud_run_service" "nginx-service" {
 
   template {
     spec {
-        container_concurrency = 10
+      container_concurrency = 10
       containers {
         image = "nginx:latest"
-        name = "nginx-service"
+        name  = "nginx-service"
 
         ports {
           container_port = 80
@@ -29,7 +29,7 @@ resource "google_cloud_run_service" "nginx-service" {
   }
 
   autogenerate_revision_name = true
-  
+
 }
 
 resource "google_cloud_run_service_iam_member" "nginx_service_all_users" {
