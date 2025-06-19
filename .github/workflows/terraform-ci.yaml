@@ -3,12 +3,14 @@ name: "Terraform CI"
 on:
   push:
     paths:
+      - "*"
       - "terraform/**"
       - ".github/workflows/terraform-ci.yaml"
     branches:
       - main
   pull_request:
     paths:
+      - "*"
       - "terraform/**"
       - ".github/workflows/terraform-ci.yaml"
 
