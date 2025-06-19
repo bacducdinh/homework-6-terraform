@@ -29,7 +29,7 @@ resource "google_compute_router_nat" "duc_bac_nat_gateway" {
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
 }
 resource "google_vpc_access_connector" "duc_bac_serverless_vpc_connector" {
-  name          = "duc-bac-serverless-vpc-connector"
+  name          = "duc-bac-vpc-connector"
   region        = var.region
   network       = google_compute_network.duc_bac_cloudrun_network.name
   ip_cidr_range = "10.15.0.0/28"
