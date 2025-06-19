@@ -1,7 +1,7 @@
 terraform {
   backend "gcs" {
     bucket = "infrateam-playground-tf-state"
-    prefix = "terraform-training/state"
+    prefix = "terraform-training-bacdd/state"
   }
 }
 
