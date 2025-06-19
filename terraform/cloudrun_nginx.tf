@@ -4,6 +4,14 @@ resource "google_cloud_run_service" "duc-bac-nginx-service" {
   location = var.region
 
   template {
+    metadata {
+      annotations = {
+        "autoscaling.knative.dev/maxScale"        = 10
+        "autoscaling.knative.dev/minScale"        = 0
+        "run.googleapis.com/vpc-access-connector" = "${module.networks.serverless_vpc_connector_name}"
+        "run.googleapis.com/vpc-access-egress"    = "all-traffic"
+      }
+    }
     spec {
       container_concurrency = 20
       containers {
