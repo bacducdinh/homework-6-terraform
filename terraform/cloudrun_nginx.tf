@@ -1,14 +1,14 @@
-resource "google_cloud_run_service" "nginx-service" {
-  name     = "nginx-service"
+resource "google_cloud_run_service" "duc-bac-nginx-service" {
+  name     = "duc-bac-nginx-service"
   project  = var.project_id
   location = var.region
 
   template {
     spec {
-        container_concurrency = 10
+      container_concurrency = 10
       containers {
         image = "nginx:latest"
-        name = "nginx-service"
+        name  = "duc-bac-nginx-service"
 
         ports {
           container_port = 80
@@ -29,13 +29,13 @@ resource "google_cloud_run_service" "nginx-service" {
   }
 
   autogenerate_revision_name = true
-  
+
 }
 
-resource "google_cloud_run_service_iam_member" "nginx_service_all_users" {
+resource "google_cloud_run_service_iam_member" "duc-bac-nginx_service_all_users" {
   location = var.region
   project  = var.project_id
-  service  = google_cloud_run_service.nginx-service.name
+  service  = google_cloud_run_service.duc-bac-nginx-service.name
   role     = "roles/run.invoker"
   member   = "allUsers"
 }
