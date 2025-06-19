@@ -16,7 +16,7 @@ resource "google_compute_router" "duc_bac_router" {
 }
 
 resource "google_compute_address" "duc_bac_nat_ip" {
-  name   = "duc_bac_nat_ip"
+  name   = "duc-bac-nat-ip"
   region = var.region
 }
 
