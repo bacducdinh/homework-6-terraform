@@ -5,7 +5,7 @@ resource "google_cloud_run_service" "duc-bac-nginx-service" {
 
   template {
     spec {
-      container_concurrency = 10
+      container_concurrency = 20
       containers {
         image = "nginx:latest"
         name  = "duc-bac-nginx-service"
